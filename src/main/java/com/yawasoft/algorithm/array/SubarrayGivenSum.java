@@ -20,15 +20,15 @@ public class SubarrayGivenSum {
      */
     public static void findStartEndIndex(int[] arr, int k){
         Map<Integer,Integer> sumWithIndex = new HashMap<>();
-        sumWithIndex.put(0, 1);
+        sumWithIndex.put(0, 0);
         int sum = 0;
         for(int i = 0; i < arr.length; i++){
             sum += arr[i];
             if(sumWithIndex.containsKey(sum - k)){
-                System.out.println(sumWithIndex.get(sum-k) + " " + (i+1));
+                System.out.println((sumWithIndex.get(sum-k) +1) + " " + (i+1));
                 return;
             }
-            sumWithIndex.putIfAbsent(sum, i+2);
+            sumWithIndex.putIfAbsent(sum, i+1);
         }
     }
 
